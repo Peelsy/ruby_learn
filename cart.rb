@@ -9,8 +9,16 @@ class Cart
     def add_item(item)
         @items.push item
     end
-    def remove_item(item)
-        @items.pop item
+    def remove_item
+        @items.pop
+    end
+
+    def validate
+        @items.each { |i| puts "No price for this item" if i.price.nil?  }
+    end
+
+    def delete_invalid_items
+        @items.delete_if { |i| i.price.nil?}    
     end
 
 end
