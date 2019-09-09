@@ -6,9 +6,9 @@ require_relative "virtual"
 require_relative "order"
 
 
-item1 = VirtualItem.new({:real_price => 10, :weight => 100, :name => "car"})
-item2 = RealItem.new({ :weight => 100, :name => "car"})
-item3 = RealItem.new({ :weight => 100, :name => "computer"})
+item1 = VirtualItem.new({:real_price => 101, :weight => 100, :name => "car"})
+item2 = RealItem.new({ :real_price => 105, :weight => 100, :name => "car"})
+item3 = RealItem.new({ :real_price => 105, :weight => 100, :name => "computer"})
 
 
 # item.info{ |attr| puts attr}
@@ -40,3 +40,5 @@ order.add_item(item3)
 order.remove_item
 
 puts order.items.size
+
+puts order.count_valid_items
