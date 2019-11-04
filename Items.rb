@@ -15,7 +15,7 @@ class Item
 
     def initialize(options = {})
         @real_price = options[:real_price]
-        # @weight = options[:weight] /// only for class RealItem
+        @weight = options[:weight] 
         @name = options[:name]
     end
  
@@ -26,6 +26,10 @@ class Item
 
     def price_with_discount
         (@real_price - @real_price*self.class.discount) + tax
+    end
+    
+    def to_s
+        "#{self.name}:#{self.real_price}:#{self.weight}"
     end
 
     private
@@ -43,6 +47,7 @@ class Item
             end
             return cost_tax + type_tax
         end
+
     # def price
     #     @price               
     # end
