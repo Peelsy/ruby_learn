@@ -1,16 +1,20 @@
-require_relative "string"
-require_relative "item_container"
-require_relative "Items"
-require_relative "real"
-require_relative "virtual"
-require_relative "order"
+require_relative "storeapp"
 
-require_relative "cart"
+StoreApp.new
 
 @items = []
-@items << VirtualItem.new({:real_price => 106, :name => "car"})
+@items << AntiqueItem.new({:real_price => 106, :name => "car"})
 @items << RealItem.new({ :real_price => 105, :weight => 100, :name => "kettle"})
 @items << RealItem.new({ :real_price => 105, :weight => 100, :name => "computer"})
+
+cart = Cart.new('kostya')
+
+cart.add_item RealItem.new({ :real_price => 105, :weight => 100, :name => "computer"})
+cart.add_item RealItem.new({ :real_price => 105, :weight => 100, :name => "kettle"})
+
+cart.all_kettles
+
+puts cart.kind_of?(Cart)
 
 
 # item.info{ |attr| puts attr}
